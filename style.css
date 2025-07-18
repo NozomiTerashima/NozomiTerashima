@@ -56,9 +56,10 @@ nav a {
 }
 
 .project-detail h2 {
-  font-size: 16px;
+  font-size: 10px; /* ← 小さく */
   font-weight: normal;
   margin-bottom: 20px;
+  text-align: left; /* ← 左寄せ */
 }
 
 .project-description {
@@ -166,6 +167,7 @@ nav a {
   .project-detail {
     padding: 14px;
   }
+  
 }
 /* Commission Works風グリッド */
 .commission-grid {
@@ -210,4 +212,15 @@ nav a {
   nav {
     margin-top: 8px;
   }
+}
+.project-images {
+  text-align: center; /* 画像を中央揃え */
+}
+
+.project-images img {
+  display: inline-block;
+  max-width: 100%;   /* 親の幅に収まる */
+  height: auto;
+  margin: 0;
+  padding: 0;
 }
