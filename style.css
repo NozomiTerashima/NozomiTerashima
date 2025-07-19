@@ -60,7 +60,7 @@ nav a {
 }
 
 .project-detail h2 {
-  font-size: 30px; /* ← 小さく */
+  font-size: 20px; /* ← 小さく */
   font-weight: normal;
   margin-bottom: 20px;
   text-align: left; /* ← 左寄せ */
@@ -109,7 +109,12 @@ nav a {
   font-weight: normal;
   line-height: 1.4;
 }
-
+.sticky-title {
+  position: sticky;
+  top: 0;
+  padding: 10px 0;
+  z-index: 10; /* 上に来るように */
+}
 .project-text a:hover {
   text-decoration: underline;
 }
@@ -204,9 +209,6 @@ nav a {
 .project-description {
   text-align: justify;
 }
-/* ---------------------
-   スマホ対応：ヘッダーの整列
---------------------- */
 
   nav {
     margin-top: 8px;
@@ -230,10 +232,5 @@ nav a {
   padding: 0;
 }
 .card-title {
-  display: none;
-}
-
-/* もし .card-title が無く .project-text a を使っている場合はこちら */
-.project-text a {
   display: none;
 }
