@@ -4,8 +4,12 @@ body {
 }
 
 header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
   padding: 20px 40px;
   border-bottom: 1px solid #ddd;
+  gap: 40px; /* ← h1とnavの間に余白 */
 }
 
 header h1 {
@@ -203,10 +207,6 @@ nav a {
 /* ---------------------
    スマホ対応：ヘッダーの整列
 --------------------- */
-@media (max-width: 600px) {
-  header {
-    padding: 20px;
-  }
 
   nav {
     margin-top: 8px;
@@ -222,8 +222,6 @@ nav a {
   .commission-grid {
     padding: 20px 10px; /* ←★ここが重要 */
   }
-}
-
 .project-images img {
   display: inline-block;
   max-width: 100%;   /* 親の幅に収まる */
