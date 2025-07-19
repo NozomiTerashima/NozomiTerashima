@@ -28,7 +28,19 @@ nav a {
   text-decoration: none;
   color: #000000;
   font-size: 13px;
+  font-weight: normal;
+  line-height: 1;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
 }
+
+nav a:active,
+nav a:focus {
+  font-weight: normal;
+  outline: none;
+  border: none;
+}
+
 
 /* === Profileページ用 === */
 .profile {
