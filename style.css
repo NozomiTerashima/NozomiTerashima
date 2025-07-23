@@ -130,7 +130,6 @@ nav a:focus {
 .project-text a:hover {
   text-decoration: underline;
 }
-
 .project-card {
   position: relative;
   overflow: hidden;
