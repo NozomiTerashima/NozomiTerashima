@@ -247,9 +247,10 @@ nav a:focus {
   display: none;
 }
 /* 画面がとても広い時だけ4列に（任意） */
-@media (min-width: 1600px) {
-  .commission-grid {
-    grid-template-columns: repeat(4, 1fr);
+@media (max-width: 600px) {
+  .commission-grid { 
+    grid-template-columns: repeat(2, 1fr) !important; /* ← 強制上書き */
+    padding: 10px;
   }
 }
 
