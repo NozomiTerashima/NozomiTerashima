@@ -260,8 +260,9 @@ nav a:focus {
 }
 @media (max-width: 600px) {
   .commission-grid { 
-    grid-template-columns: repeat(2, 1fr); /* ← ここを2列に変更 */
-    padding: 20px 10px;
+    grid-template-columns: repeat(2, 1fr) !important;
+    padding: 0;      /* ← 横余白をゼロに */
+    gap: 2px;        /* ← 画像間の隙間を最小化 */
   }
 }
 *, *::before, *::after { box-sizing: border-box; }
