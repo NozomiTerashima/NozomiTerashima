@@ -49,8 +49,8 @@ nav a:focus {
 }
 
 .bio {
-  max-width: 600px;
-  font-size: 13px;
+  max-width: 1000px;
+  font-size: 12px;
   line-height: 1.4;
 }
 
@@ -80,7 +80,7 @@ nav a:focus {
 }
 
 .project-description {
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.4;
   margin-bottom: 10px;
   max-width: 400px;
@@ -175,7 +175,8 @@ nav a:focus {
   .commission-grid { padding: 20px 10px; }
 
   /* Profileページ：左右バランスよく */
-  .profile { padding: 40px 20px 60px 20px; }
+  .profile {
+    padding: 20px 12px; /* ← 上下20px, 左右12pxに */
 
   nav a {
     font-size: 14px;
