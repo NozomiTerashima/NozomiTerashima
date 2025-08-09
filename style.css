@@ -95,18 +95,17 @@ nav a:active {
   display: inline-block;
   max-width: 100%;
   height: auto;
-  margin: 0 0 8px;
+  margin: 0 0 3px;
   padding: 0;
 }
 
 /* === Home / Projects grid === */
 .commission-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);  /* PC: 3列 */
-  gap: 3px;                                /* 画像間隔はそのまま */
-  padding: 10px 5px;                       /* ← 左右余白をかなり減らす（5px） */
-  max-width: 1200px;                       /* 最大幅はキープ */
-  margin: 0 auto;                          /* 中央寄せ */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  padding: 50px 15px 10px;  /* ← 上を50pxにして画像を下げる */
+  margin: 0 auto;
 }
 .commission-card {
   display: block;
@@ -165,7 +164,7 @@ nav a:active {
   .commission-grid {
     grid-template-columns: repeat(2, 1fr); /* Phone: 2列 */
     padding: 10px;                         /* 横余白を薄く */
-    gap: 2px;                              /* さらに詰める */
+    gap: 3px;                              /* さらに詰める */
   }
 
 }
