@@ -1,99 +1,129 @@
-/* === 基本設定 === */
+/* === Reset / Base === */
+*, *::before, *::after { box-sizing: border-box; }
+
 body {
   font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
 }
 
+/* === Header === */
 header {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  gap: 40px;                 /* h1 と nav の間隔 */
   padding: 20px 40px;
   border-bottom: 1px solid #ddd;
-  gap: 40px; /* ← h1とnavの間に余白 */
 }
-
 header h1 {
   font-size: 20px;
   font-weight: normal;
-  margin-bottom: 8px;
+  margin: 0;
 }
-
+header h1,
 header h1 a {
-  white-space: nowrap;
-  text-decoration: none;
-  color: inherit;
+  white-space: nowrap;       /* Nozomi Terashima を改行させない */
 }
-
-nav a {
-  margin-right: 20px;
+header h1 a {
+  color: inherit;
   text-decoration: none;
-  color: #000000;
+}
+nav a {
+  text-decoration: none;
+  color: #000;
   font-size: 13px;
-  font-weight: normal;
   line-height: 1;
+  margin-right: 20px;
+  font-weight: normal;
   outline: none;
   -webkit-tap-highlight-color: transparent;
 }
-
-nav a:active,
-nav a:focus {
+nav a:focus,
+nav a:active {
   font-weight: normal;
   outline: none;
-  border: none;
+  border: 0;
 }
 
-
-/* === Profileページ用 === */
+/* === Profile page === */
 .profile {
   padding: 40px 20px 60px 40px;
 }
-
 .bio {
   max-width: 1000px;
   font-size: 12px;
-  line-height: 1.4;
+  line-height: 1.6;
 }
-
-.bio p {
-  margin-bottom: 20px;
-}
-
+.bio p { margin: 0 0 20px; }
 .profile-image img {
   display: block;
-  margin-top: 20px;
   width: 300px;
   height: auto;
+  margin-top: 20px;
 }
 
-/* === Project 詳細ページ === */
+/* === Project detail page === */
 .project-detail {
   max-width: 800px;
   padding: 40px 0 60px 40px;
   margin: 0;
 }
-
 .project-detail h2 {
-  font-size: 15px; /* ← 小さく */
+  font-size: 15px;
   font-weight: normal;
-  margin-bottom: 15px;
-  text-align: left; /* ← 左寄せ */
+  margin: 0 0 15px;
+  text-align: left;
 }
-
+.sticky-title {
+  position: sticky;
+  top: 60px;                 /* ヘッダー高に合わせて適宜調整 */
+  background: #fff;
+  z-index: 10;
+  padding: 10px 0;
+}
 .project-description {
   font-size: 12px;
-  line-height: 1.4;
-  margin-bottom: 10px;
+  line-height: 1.6;
+  margin: 0 0 10px;
   max-width: 400px;
   white-space: pre-line;
+  text-align: justify;
 }
-
+.project-images { text-align: center; }
 .project-images img {
-  width: 100%;
-  margin-bottom: 8px;
-  display: block;
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 0 8px;
+  padding: 0;
 }
 
-/* === トップページのプロジェクト一覧 === */
+/* === Home / Projects grid === */
+.commission-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  /* PC: 3列 */
+  gap: 3px;                                /* 画像間隔はそのまま */
+  padding: 10px 5px;                       /* ← 左右余白をかなり減らす（5px） */
+  max-width: 1200px;                       /* 最大幅はキープ */
+  margin: 0 auto;                          /* 中央寄せ */
+}
+.commission-card {
+  display: block;
+  color: #000;
+  text-decoration: none;
+}
+.commission-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+  transition: transform 0.3s ease;
+}
+.card-title { display: none; }
+
+/* === Misc (older list layout kept tidy) === */
 .project-list {
   display: flex;
   flex-direction: column;
@@ -103,182 +133,39 @@ nav a:focus {
   max-width: 800px;
   margin: 0 auto;
 }
-
-.project-item img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-.project-item {
-  text-decoration: none;
-}
-
+.project-item { text-decoration: none; }
+.project-item img { width: 100%; height: auto; display: block; }
 .project-text a {
   font-size: 10px;
-  color: #000000;
+  color: #000;
   text-decoration: none;
   display: inline-block;
   margin-top: 5px;
   font-weight: normal;
   line-height: 1.4;
 }
-.sticky-title {
-  position: sticky;
-  top: 60px;          /* ヘッダーの高さに合わせて微調整可（50〜70px目安） */
-  background: #fff;   /* 画像の上に乗っても読めるように */
-  z-index: 10;
-  padding: 10px 0; 
-}
-.project-text a:hover {
-  text-decoration: underline;
-}
-.project-card {
-  position: relative;
-  overflow: hidden;
-  display: block;
-  text-decoration: none;
-}
+.project-text a:hover { text-decoration: underline; }
 
-.project-card img {
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: transform 0.3s ease;
-  object-fit: cover;
-  aspect-ratio: 4 / 3;
-}
-.overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  font-size: 12px;
-  padding: 12px 12px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-  text-align: center;
+/* === Responsive === */
+@media (max-width: 1024px) {
+  .commission-grid {
+    grid-template-columns: repeat(3, 1fr); /* Tablet: 3列 */
+    padding: 24px 16px;
+  }
 }
 
 @media (max-width: 600px) {
-  /* ヘッダーまわり（縦積みにしないなら削除可） */
-  /* header { flex-direction: column; align-items: flex-start; } */
-
   header h1 { font-size: 14px; }
   nav a { font-size: 14px; margin: 0 8px; }
 
-  /* プロジェクト詳細の左右余白を詰める */
+  .profile { padding: 20px 12px; }
+
   .project-detail { padding: 20px 10px; }
 
-  /* トップのグリッド：隙間は今 3px のまま。左右余白だけ詰める */
-  .commission-grid { padding: 20px 10px; }
-
-  /* Profileページ：左右バランスよく */
-  .profile {
-    padding: 20px 12px; /* ← 上下20px, 左右12pxに */
-
-  nav a {
-    font-size: 14px;
-    margin: 0 8px;
-  }
-
-  .gallery,
-  .project-detail {
-    padding: 14px;
-  }
-  
-}
-/* Commission Works風グリッド */
-.commission-grid {
-  display: grid;
-  /* 列幅は自動、まずは3列で大きめに */
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3px;           /* ← 隙間は現状のまま */
-  padding: 40px;
-  width: 100%;
-  max-width: none;    /* ← 1200pxの上限を外す＝画面いっぱい使う */
-  margin: 0 auto;
-}
-
-.commission-card {
-  display: block;
-  text-decoration: none;
-  color: #000;
-}
-
-.commission-card img {
-  width: 100%;
-  display: block;
-  object-fit: cover;
-  aspect-ratio: 4 / 3;
-  transition: transform 0.3s ease;
-}
-.card-title {
-  margin-top: 12px;
-  font-size: 14px;
-  text-align: center;
-}
-.project-description {
-  text-align: justify;
-}
-
-  nav {
-    margin-top: 8px;
-    display: flex;
-    justify-content: flex-start;
-    gap: 16px;
-  }
-
-  .profile {
-    padding: 60px 40px 60px 20px;
-  }
-
   .commission-grid {
-    padding: 20px 10px; /* ←★ここが重要 */
+    grid-template-columns: repeat(2, 1fr); /* Phone: 2列 */
+    padding: 10px;                         /* 横余白を薄く */
+    gap: 2px;                              /* さらに詰める */
   }
-.project-images img {
-  display: inline-block;
-  max-width: 100%;   /* 親の幅に収まる */
-  height: auto;
-  margin: 0;
-  padding: 0;
-}
-.card-title {
-  display: none;
-}
-/* 画面がとても広い時だけ4列に（任意） */
-@media (max-width: 600px) {
-  .commission-grid { 
-    grid-template-columns: repeat(2, 1fr) ; /* ← 強制上書き */
-    padding: 10px;
-  }
-}
-
-/* タブレット以下は2列、スマホは1列（任意） */
-@media (max-width: 900px) {
-  .commission-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 600px) {
-  .commission-grid { 
-    grid-template-columns: repeat(2, 1fr) !important;
-    padding: 0;      /* ← 横余白をゼロに */
-    gap: 2px;        /* ← 画像間の隙間を最小化 */
-  }
-}
-*, *::before, *::after { box-sizing: border-box; }
-
-/* ホームのグリッド：横スクロール対策 */
-.commission-grid {
-  /* width: 100%; ←削除 or 無効化 */
-  width: auto;              /* か、プロパティ自体を消してOK */
-  max-width: none;          /* 画面いっぱい使う */
-  padding: 40px;
-  gap: 3px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  margin: 0 auto;
-}
-.commission-card img { max-width: 100%; height: auto; display: block; }
 
 }
