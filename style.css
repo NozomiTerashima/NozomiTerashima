@@ -19,6 +19,7 @@ header h1 {
 }
 
 header h1 a {
+  white-space: nowrap;
   text-decoration: none;
   color: inherit;
 }
@@ -123,9 +124,10 @@ nav a:focus {
 }
 .sticky-title {
   position: sticky;
-  top: 0;
-  padding: 10px 0;
-  z-index: 10; /* 上に来るように */
+  top: 60px;          /* ヘッダーの高さに合わせて微調整可（50〜70px目安） */
+  background: #fff;   /* 画像の上に乗っても読めるように */
+  z-index: 10;
+  padding: 10px 0; 
 }
 .project-text a:hover {
   text-decoration: underline;
@@ -160,13 +162,20 @@ nav a:focus {
 }
 
 @media (max-width: 600px) {
-  body {
-    font-size: 14px;
-  }
+  /* ヘッダーまわり（縦積みにしないなら削除可） */
+  /* header { flex-direction: column; align-items: flex-start; } */
 
-  header h1 {
-    font-size: 14px;
-  }
+  header h1 { font-size: 14px; }
+  nav a { font-size: 14px; margin: 0 8px; }
+
+  /* プロジェクト詳細の左右余白を詰める */
+  .project-detail { padding: 20px 10px; }
+
+  /* トップのグリッド：隙間は今 3px のまま。左右余白だけ詰める */
+  .commission-grid { padding: 20px 10px; }
+
+  /* Profileページ：左右バランスよく */
+  .profile { padding: 40px 20px 60px 20px; }
 
   nav a {
     font-size: 14px;
