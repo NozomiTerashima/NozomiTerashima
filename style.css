@@ -191,10 +191,12 @@ nav a:focus {
 /* Commission Works風グリッド */
 .commission-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 3px;
+  /* 列幅は自動、まずは3列で大きめに */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;           /* ← 隙間は現状のまま */
   padding: 40px;
-  max-width: 1200px;
+  width: 100%;
+  max-width: none;    /* ← 1200pxの上限を外す＝画面いっぱい使う */
   margin: 0 auto;
 }
 
@@ -244,3 +246,34 @@ nav a:focus {
 .card-title {
   display: none;
 }
+/* 画面がとても広い時だけ4列に（任意） */
+@media (min-width: 1600px) {
+  .commission-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* タブレット以下は2列、スマホは1列（任意） */
+@media (max-width: 900px) {
+  .commission-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .commission-grid { 
+    grid-template-columns: repeat(2, 1fr); /* ← ここを2列に変更 */
+    padding: 20px 10px;
+  }
+}
+*, *::before, *::after { box-sizing: border-box; }
+
+/* ホームのグリッド：横スクロール対策 */
+.commission-grid {
+  /* width: 100%; ←削除 or 無効化 */
+  width: auto;              /* か、プロパティ自体を消してOK */
+  max-width: none;          /* 画面いっぱい使う */
+  padding: 40px;
+  gap: 3px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0 auto;
+}
+.commission-card img { max-width: 100%; height: auto; display: block; }
