@@ -148,6 +148,7 @@ nav a:active {
   font-size: 0.65rem;   /* 小さめ */
   color: #666;          /* グレー */
   line-height: 1.6;
+  max-width: 425px;     /* 本文と同じ幅に制限（必要なら） */
 }
 
 /* === Responsive === */
