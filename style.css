@@ -144,6 +144,11 @@ nav a:active {
   line-height: 1.4;
 }
 .project-text a:hover { text-decoration: underline; }
+.credit {
+  font-size: 0.65rem;   /* 小さめ */
+  color: #666;          /* グレー */
+  line-height: 1.6;
+}
 
 /* === Responsive === */
 @media (max-width: 1024px) {
@@ -166,5 +171,10 @@ nav a:active {
     padding: 10px;                         /* 横余白を薄く */
     gap: 3px;                              /* さらに詰める */
   }
+  @media (max-width: 600px) {
+  .credit {
+    font-size: 0.75rem;
+  }
+}
 
 }
