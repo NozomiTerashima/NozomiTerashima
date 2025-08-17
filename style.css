@@ -191,3 +191,40 @@ nav a:active {
     font-size: 0.75rem;
   }
 }
+/* ===== ホバー時：画面中央にタイトルを固定表示 ===== */
+.commission-card {
+  position: relative; /* 既存 */
+}
+
+/* 初期状態：非表示 */
+.commission-card::before {
+  content: attr(data-title);
+  position: fixed;           /* ← ビューポート基準で中央に出す */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;      /* クリック操作を邪魔しない */
+  opacity: 0;
+
+  /* 見た目（好みで調整） */
+  font-size: clamp(20px, 4vw, 36px);
+  font-weight: 400;
+  letter-spacing: .02em;
+  color: #fff694;
+  text-align: center;
+
+  /* 背景を付けたい場合は下2行のコメントを外す */
+  /* background: rgba(255,255,255,.7);
+     padding: .2em .5em; border-radius: 6px; */
+
+  /* “パッと出る”なら transition: none; 少し滲ませるなら 120ms 程度 */
+  transition: none; /* or: opacity .12s ease; */
+  z-index: 999;     /* ヘッダーより上にしたい場合は 1001 などへ */
+}
+
+/* ホバー時に表示 */
+.commission-card:hover::before,
+.commission-card:focus-visible::before {
+  opacity: 1;
+}
+.commission-card:active::before { opacity: 1; }
