@@ -107,39 +107,34 @@ nav a:active {
   padding: 50px 15px 10px;  /* ← 上を50pxにして画像を下げる */
   margin: 0 auto;
 }
-
 .commission-card {
-  position: relative;        /* ← 追加：擬似要素の基準にする */
-  overflow: hidden;          /* ← 追加：枠線のはみ出し防止 */
   display: block;
   color: #000;
   text-decoration: none;
+  position: relative;       /* 擬似要素の基準にする */
 }
-
-/* ← 追加：ホバー時の黒い線（レイアウトに影響しない） */
-.commission-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;                  /* 上下左右にぴったり */
-  border: 1px solid #fff980;    /* 枠線の太さ/色はここで調整 */
-  opacity: 0;                /* ふだんは非表示 */
-  transition: none;
-  pointer-events: none;      /* クリック操作を邪魔しない */
-}
-.commission-card:hover::after,
-.commission-card:focus-visible::after {
-  opacity: 1;
-}
-
 .commission-card img {
   width: 100%;
   height: auto;
   display: block;
   object-fit: cover;
   aspect-ratio: 4 / 3;
-  transition: transform 0.3s ease;
 }
 .card-title { display: none; }
+
+/* Hover時の黒い線（パッと表示） */
+.commission-card::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border: 2px solid #fff59a;
+  opacity: 0;
+  pointer-events: none;  /* 余白を邪魔しない */
+  transition: none;      /* アニメーションなしで即表示 */
+}
+.commission-card:hover::after {
+  opacity: 1;
+}
 
 /* === Misc (older list layout kept tidy) === */
 .project-list {
@@ -167,7 +162,7 @@ nav a:active {
   font-size: 0.65rem;   /* 小さめ */
   color: #666;          /* グレー */
   line-height: 1.6;
-  max-width: 425px;     /* 本文と同じ幅に制限（必要なら） */
+  max-width: 425px;
 }
 
 /* === Responsive === */
@@ -188,9 +183,11 @@ nav a:active {
 
   .commission-grid {
     grid-template-columns: repeat(2, 1fr); /* Phone: 2列 */
-    padding: 10px;                         /* 横余白を薄く */
-    gap: 3px;                              /* さらに詰める */
+    padding: 10px;
+    gap: 3px;
   }
 
-  .credit { font-size: 0.75rem; }          /* ← 入れ子ミスを修正しここへ */
+  .credit {
+    font-size: 0.75rem;
+  }
 }
