@@ -121,7 +121,7 @@ nav a:active {
   content: "";
   position: absolute;
   inset: 0;                  /* 上下左右にぴったり */
-  border: 2px solid #fff980;    /* 枠線の太さ/色はここで調整 */
+  border: 1px solid #fff980;    /* 枠線の太さ/色はここで調整 */
   opacity: 0;                /* ふだんは非表示 */
   transition: none;
   pointer-events: none;      /* クリック操作を邪魔しない */
