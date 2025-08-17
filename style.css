@@ -107,11 +107,30 @@ nav a:active {
   padding: 50px 15px 10px;  /* ← 上を50pxにして画像を下げる */
   margin: 0 auto;
 }
+
 .commission-card {
+  position: relative;        /* ← 追加：擬似要素の基準にする */
+  overflow: hidden;          /* ← 追加：枠線のはみ出し防止 */
   display: block;
   color: #000;
   text-decoration: none;
 }
+
+/* ← 追加：ホバー時の黒い線（レイアウトに影響しない） */
+.commission-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;                  /* 上下左右にぴったり */
+  border: 2px solid #fff980;    /* 枠線の太さ/色はここで調整 */
+  opacity: 0;                /* ふだんは非表示 */
+  transition: none;
+  pointer-events: none;      /* クリック操作を邪魔しない */
+}
+.commission-card:hover::after,
+.commission-card:focus-visible::after {
+  opacity: 1;
+}
+
 .commission-card img {
   width: 100%;
   height: auto;
@@ -172,10 +191,6 @@ nav a:active {
     padding: 10px;                         /* 横余白を薄く */
     gap: 3px;                              /* さらに詰める */
   }
-  @media (max-width: 600px) {
-  .credit {
-    font-size: 0.75rem;
-  }
-}
 
+  .credit { font-size: 0.75rem; }          /* ← 入れ子ミスを修正しここへ */
 }
