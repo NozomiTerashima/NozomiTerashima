@@ -225,4 +225,8 @@ nav a:active {
   }
 
   .credit { font-size: 0.75rem; }
+
+  .commission-card::before {
+    font-size: 20px;
+  }
 }
