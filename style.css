@@ -172,7 +172,7 @@ nav a:active {
   transform: translate(-50%, -50%);
   pointer-events: none;
   opacity: 0;
-  font-size: clamp(10px, 4vw, 100px);
+  font-size: clamp(100px, 10vw, 100px);
   font-weight: 400;
   letter-spacing: .02em;
   color: #fff694;
@@ -220,36 +220,22 @@ nav a:active {
   .profile { padding: 20px 12px; }
 
   .project-detail {
-    padding: 20px 12px; /* ← 修正：右側のpaddingを追加 */
+    padding: 20px 12px;
   }
 
   .project-description {
-    max-width: 100%; /* ← 追加：スマホで幅いっぱいに */
+    max-width: 100%;
   }
 }
-
-commission-grid {
-    grid-template-columns: 1fr;
-    padding: 10px;
-    gap: 3px;
-  }
-
-  .credit { font-size: 0.75rem; }
-
-  .commission-card::before {
-    font-size: 20px;
-  }
 
 @media (max-width: 600px) {
-  .commission-grid {
-    grid-template-columns: 1fr;
-    padding: 10px;
-    gap: 3px;
+  .commission-card::before {
+    font-size: 20px !important;
   }
+}
 
   .credit { font-size: 0.75rem; }
 
   .commission-card::before {
-    font-size: 20px;
+    font-size: 50px;
   }
-}
