@@ -172,7 +172,7 @@ nav a:active {
   transform: translate(-50%, -50%);
   pointer-events: none;
   opacity: 0;
-  font-size: clamp(100px, 10vw, 100px);
+  font-size: clamp(60px, 10vw, 50px);
   font-weight: 400;
   letter-spacing: .02em;
   color: #fff694;
