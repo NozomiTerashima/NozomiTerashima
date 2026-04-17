@@ -172,7 +172,7 @@ nav a:active {
   transform: translate(-50%, -50%);
   pointer-events: none;
   opacity: 0;
-  font-size: clamp(100px, 10vw, 100px);
+  font-size: 50px; /* 黄色の文字編集用 */
   font-weight: 400;
   letter-spacing: .02em;
   color: #fff694;
@@ -207,7 +207,7 @@ nav a:active {
 }
 
 /* Responsive */
-@media (max-width: 1024px) {
+@media (min-width: 600px) and (max-width: 1000px) {
   .commission-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
@@ -225,6 +225,10 @@ nav a:active {
 
   .project-description {
     max-width: 100%;
+  }
+
+  .commission-card::before {
+    font-size: 10px; /* ← 追加 */
   }
 }
 
