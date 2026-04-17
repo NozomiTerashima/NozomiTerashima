@@ -172,7 +172,7 @@ nav a:active {
   transform: translate(-50%, -50%);
   pointer-events: none;
   opacity: 0;
-  font-size: 50px; /* 黄色の文字編集用 */
+  font-size: clamp(100px, 10vw, 100px);
   font-weight: 400;
   letter-spacing: .02em;
   color: #fff694;
@@ -228,7 +228,7 @@ nav a:active {
   }
 
   .commission-card::before {
-    font-size: 10px; /* ← 追加 */
+    font-size: px; /* ← 追加 */
   }
 }
 
