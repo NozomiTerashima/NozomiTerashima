@@ -229,7 +229,7 @@ nav a:active {
   }
 
   .commission-card::before {
-    font-size: 20px; /* ← 追加 */
+    font-size: px; /* ← 追加 */
   }
 }
 
