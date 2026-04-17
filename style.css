@@ -7,6 +7,7 @@ body {
   margin: 0;
   background-color: #fff;
   color: #000;
+  overflow-x: hidden; /* ← 追加 */
 }
 
 /* Header */
@@ -228,7 +229,7 @@ nav a:active {
   }
 
   .commission-card::before {
-    font-size: px; /* ← 追加 */
+    font-size: 20px; /* ← 追加 */
   }
 }
 
