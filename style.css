@@ -1,8 +1,7 @@
 *, *::before, *::after { box-sizing: border-box; }
 
 body {
-  font-family: 'Zen Kaku Gothic New', sans-serif;
-  font-size: 14px;
+  font-family: 'Zen Maru Gothic', sans-serif;
   line-height: 1.6;
   margin: 0;
   background-color: #fff;
