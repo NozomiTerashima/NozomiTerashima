@@ -8,24 +8,21 @@ body {
   margin: 0;
   background-color: #fff;
   color: #000;
-  overflow-x: hidden; /* ← 追加 */
+  overflow-x: hidden; 
 }
 
-/* Header */
+
 header {
   display: flex;
   align-items: center;
   gap: 40px;
   padding: 20px 40px;
   border-bottom: 1px solid #ddd;
-  flex-wrap: nowrap; /* ← 追加 */
+  flex-wrap: nowrap; 
 }
 
 header h1 {
-  /* 画面幅に応じて 14px〜20px の間を滑らかにスケール。
-     ブレークポイントごとの数値指定をやめたことで、
-     表示場所によってサイズが飛ぶ問題を解消。 */
-  font-size: clamp(14px, 2vw, 20px);
+font-size: clamp(14px, 2vw, 20px);
   font-weight: normal;
   margin: 0;
 }
@@ -43,7 +40,6 @@ header h1 a {
 nav a {
   text-decoration: none;
   color: #000;
-  /* header h1 と同じ考え方でスムーズにスケール */
   font-size: clamp(13px, 1.2vw, 15px);
   line-height: 1;
   margin-right: 20px;
@@ -59,7 +55,7 @@ nav a:active {
   border: 0;
 }
 
-/* Profile */
+
 .profile {
   padding: 40px 20px 60px 40px;
 }
@@ -178,8 +174,6 @@ nav a:active {
   transform: translate(-50%, -50%);
   pointer-events: none;
   opacity: 0;
-  /* 元は clamp(60px, 10vw, 50px) で最小値>最大値という
-     無効な指定だったため、最小36px・最大60pxに修正(仮値) */
   font-size: clamp(36px, 6vw, 60px);
   font-weight: 400;
   letter-spacing: .02em;
