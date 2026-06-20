@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap');
+
 *, *::before, *::after { box-sizing: border-box; }
 
 body {
@@ -20,7 +22,10 @@ header {
 }
 
 header h1 {
-  font-size: 20px;
+  /* 画面幅に応じて 14px〜20px の間を滑らかにスケール。
+     ブレークポイントごとの数値指定をやめたことで、
+     表示場所によってサイズが飛ぶ問題を解消。 */
+  font-size: clamp(14px, 2vw, 20px);
   font-weight: normal;
   margin: 0;
 }
@@ -38,7 +43,8 @@ header h1 a {
 nav a {
   text-decoration: none;
   color: #000;
-  font-size: 15px;
+  /* header h1 と同じ考え方でスムーズにスケール */
+  font-size: clamp(13px, 1.2vw, 15px);
   line-height: 1;
   margin-right: 20px;
   font-weight: normal;
@@ -172,7 +178,9 @@ nav a:active {
   transform: translate(-50%, -50%);
   pointer-events: none;
   opacity: 0;
-  font-size: clamp(60px, 10vw, 50px);
+  /* 元は clamp(60px, 10vw, 50px) で最小値>最大値という
+     無効な指定だったため、最小36px・最大60pxに修正(仮値) */
+  font-size: clamp(36px, 6vw, 60px);
   font-weight: 400;
   letter-spacing: .02em;
   color: #fff694;
@@ -214,9 +222,6 @@ nav a:active {
     padding: 16px 16px;
   }
 
-  header h1 { font-size: 14px; }
-  nav a { font-size: 14px; margin: 0 8px; }
-
   .profile { padding: 20px 12px; }
 
   .project-detail {
@@ -227,9 +232,6 @@ nav a:active {
     max-width: 100%;
   }
 
-  .commission-card::before {
-    font-size: px; /* ← 追加 */
-  }
 }
 
 @media (max-width: 600px) {
@@ -237,9 +239,6 @@ nav a:active {
     gap: 16px;
     padding: 16px;
   }
-
-  header h1 { font-size: 14px; }
-  nav a { font-size: 14px; margin: 0 8px; }
 
   .profile { padding: 20px 12px; }
 
