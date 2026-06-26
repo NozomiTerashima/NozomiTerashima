@@ -8,54 +8,100 @@ body {
   margin: 0;
   background-color: #fff;
   color: #000;
-  overflow-x: hidden; 
+  overflow-x: hidden;
+  padding-top: 60px;
 }
 
-
+/* =====================
+   ヘッダー
+   ===================== */
 header {
   display: flex;
   align-items: center;
-  gap: 40px;
-  padding: 20px 40px;
-  border-bottom: 1px solid #ddd;
-  flex-wrap: nowrap; 
+  justify-content: space-between;
+  padding: 0;
+  border-bottom: none;
+  flex-wrap: nowrap;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  background: transparent;
+  height: 60px;
 }
 
 header h1 {
-font-size: clamp(14px, 2vw, 20px);
-  font-weight: normal;
+  position: static;
+  padding: 0 0 0 40px;
   margin: 0;
-}
-
-header h1,
-header h1 a {
+  font-size: 15px;
+  font-weight: normal;
+  line-height: 1;
+  flex-shrink: 0;
   white-space: nowrap;
 }
 
 header h1 a {
-  color: inherit;
+  color: #000;
   text-decoration: none;
+  white-space: nowrap;
+}
+
+header h1 a:hover,
+header h1 a:focus,
+header h1 a:active {
+  color: #ff9a9a;
+}
+
+nav {
+  position: absolute;
+  right: 50vw;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
 }
 
 nav a {
   text-decoration: none;
   color: #000;
-  font-size: clamp(13px, 1.2vw, 15px);
+  font-size: 15px;
   line-height: 1;
-  margin-right: 20px;
   font-weight: normal;
   outline: none;
   -webkit-tap-highlight-color: transparent;
 }
 
+nav a:hover,
 nav a:focus,
 nav a:active {
-  font-weight: normal;
-  outline: none;
-  border: 0;
+  color: #ff9a9a;
 }
 
+.header-thumb {
+  display: block;
+  width: 140px;
+  height: 140px;
+  overflow: hidden;
+  flex-shrink: 0;
+  margin-left: auto;
+  margin-right: 16px;
+  margin-top: 8px;
+  align-self: flex-start;
+}
 
+.header-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 1;
+}
+
+/* =====================
+   プロフィール
+   ===================== */
 .profile {
   padding: 40px 20px 60px 40px;
 }
@@ -97,110 +143,6 @@ nav a:active {
   opacity: 1;
 }
 
-/* Project detail */
-.project-detail {
-  max-width: 1100px;
-  padding: 40px 0 60px 40px;
-  margin: 0;
-  overflow-x: hidden; /* ← 追加 */
-}
-
-.project-detail h2 {
-  font-size: 15px;
-  font-weight: normal;
-  margin: 0 0 15px;
-  text-align: left;
-}
-
-.sticky-title {
-  position: sticky;
-  top: 60px;
-  background: #fff;
-  z-index: 10;
-  padding: 10px 0;
-}
-
-.project-description {
-  font-size: 12px;
-  line-height: 1.6;
-  margin: 0 0 10px;
-  max-width: 400px;
-  white-space: pre-line;
-  text-align: justify;
-}
-
-.project-images { text-align: center; }
-
-.project-images img {
-  display: inline-block;
-  max-width: 100%;
-  height: auto;
-  margin: 0 0 3px;
-  padding: 0;
-}
-
-/* Projects grid */
-.commission-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 5px;
-  padding: 50px 15px 10px;
-  margin: 0 auto;
-  max-width: 4000px; /* ← ここで全体サイズを制限 */
-}
-
-.commission-card {
-  display: block;
-  color: #000;
-  text-decoration: none;
-  position: relative;
-}
-
-.commission-card img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-  aspect-ratio: 1 / 1;
-}
-
-.card-title { display: none; }
-
-.commission-card::before {
-  content: attr(data-title);
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  opacity: 0;
-  font-size: clamp(36px, 6vw, 60px);
-  font-weight: 400;
-  letter-spacing: .02em;
-  color: #fff694;
-  text-align: center;
-  white-space: nowrap;
-  transition: none;
-  z-index: 999;
-}
-
-.commission-card::after {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  border: 2px solid #fff694;
-  opacity: 0;
-  pointer-events: none;
-  transition: none;
-}
-
-.commission-card:hover::before,
-.commission-card:focus-visible::before,
-.commission-card:active::before,
-.commission-card:hover::after {
-  opacity: 1;
-}
-
 .credit {
   font-size: 0.65rem;
   color: #666;
@@ -208,51 +150,305 @@ nav a:active {
   max-width: 425px;
 }
 
-/* Responsive */
-@media (min-width: 600px) and (max-width: 1000px) {
-  .commission-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    padding: 16px 16px;
-  }
-
-  .profile { padding: 20px 12px; }
-
-  .project-detail {
-    padding: 20px 12px;
-  }
-
-  .project-description {
-    max-width: 100%;
-  }
-
+/* =====================
+   ホームレイアウト
+   ===================== */
+.home-layout {
+  display: grid;
+  grid-template-columns: 50vw 1fr;
+  min-height: calc(100vh - 60px);
 }
 
-@media (max-width: 600px) {
+.photo-col {
+  padding: 40px 40px 60px 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.home-item {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+}
+
+.home-item img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.home-item:hover img,
+.home-item.active img {
+  box-shadow: 0 0 0 2px #ff9a9a;
+}
+
+.title-col {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.hover-title {
+  font-size: clamp(18px, 2.5vw, 32px);
+  font-weight: 400;
+  color: #ff9a9a;
+  letter-spacing: 0.05em;
+  text-align: center;
+  padding: 20px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: keep-all;
+}
+
+/* =====================
+   雑記ページ
+   ===================== */
+.zakki-layout {
+  max-width: 340px;
+  margin: 0 auto;
+  padding: 60px 0 120px;
+}
+
+.zakki-entry {
+  margin-bottom: 80px;
+}
+
+.zakki-text {
+  font-size: 12px;
+  line-height: 2;
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+.zakki-text p {
+  margin: 0 0 1.5em;
+}
+
+.zakki-photo {
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.zakki-photo img {
+  width: 60%;
+  height: auto;
+  display: inline-block;
+}
+
+.zakki-date-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.zakki-date {
+  font-size: 11px;
+  color: #000;
+  white-space: nowrap;
+}
+
+.zakki-line {
+  width: 100%;
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 0;
+}
+
+/* =====================
+   プロジェクト詳細
+   ===================== */
+.project-detail-split {
+  display: grid;
+  grid-template-columns: 50vw 1fr;
+  min-height: calc(100vh - 60px);
+  align-items: start;
+}
+
+.project-text-col {
+  grid-column: 2;
+  grid-row: 1;
+  padding: 60px 40px;
+  position: sticky;
+  top: 60px;
+  height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+}
+
+.project-text-col h2 {
+  font-size: 15px;
+  font-weight: normal;
+  margin: 0 0 24px;
+  text-align: left;
+  width: 100%;
+  max-width: 340px;
+}
+
+.project-text-col .project-description {
+  text-align: left;
+  width: 100%;
+  max-width: 340px;
+  font-size: 12px;
+  line-height: 2;
+}
+
+.project-text-col .credit {
+  margin-top: 24px;
+  text-align: left;
+  width: 100%;
+  max-width: 340px;
+}
+
+.project-photo-col {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 40px 40px 80px 40px;
+  box-sizing: border-box;
+  width: 50vw;
+}
+
+.project-photo-col img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =====================
+   Responsive (スマホ)
+   ===================== */
+@media (max-width: 768px) {
+
+  body {
+    padding-top: 50px;
+  }
+
   header {
-    gap: 16px;
-    padding: 16px;
+    height: 50px;
   }
 
-  .profile { padding: 20px 12px; }
-
-  .project-detail {
-    padding: 20px 12px;
+  header h1 {
+    padding: 0 0 0 10px;
+    font-size: 12px;
+    letter-spacing: -0.017em;
   }
 
-  .project-description {
+  nav {
+    position: absolute;
+    left: 283px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  nav a {
+    font-size: 12px;
+    letter-spacing: -0.017em;
+  }
+
+  .header-thumb {
+    width: 62px;
+    height: 62px;
+    margin: 0;
+    align-self: flex-start;
+    flex-shrink: 0;
+  }
+
+  /* ホーム */
+  .home-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .title-col {
+    display: none;
+  }
+
+  .photo-col {
+    padding: 16px 10px 60px 10px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .home-item {
+    aspect-ratio: unset;
+    overflow: visible;
+  }
+
+  .home-item img {
+    width: 76.6%;
+    height: auto;
+    object-fit: unset;
+  }
+
+  .home-item::after {
+    content: attr(data-title);
+    position: absolute;
+    top: 50%;
+    left: 38.3%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    color: #ff9a9a;
+    text-align: center;
+    pointer-events: none;
+    white-space: pre-wrap;
+    word-break: keep-all;
+    padding: 8px;
+    opacity: 0;
+  }
+
+  .home-item.active::after {
+    opacity: 1;
+  }
+
+  /* プロジェクト詳細 */
+  .project-detail-split {
+    grid-template-columns: 1fr;
+  }
+
+  .project-text-col {
+    grid-column: 1;
+    grid-row: 1;
+    position: static;
+    height: auto;
+    padding: 40px 16px 24px;
+    align-items: flex-start;
+  }
+
+  .project-photo-col {
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;
+    padding: 0 16px 60px;
+    gap: 24px;
+  }
+
+  /* 雑記 */
+  .zakki-layout {
+    padding: 40px 16px 80px;
     max-width: 100%;
   }
 
-  .commission-grid {
-    grid-template-columns: 1fr;
-    padding: 10px;
-    gap: 3px;
+  .zakki-photo img {
+    width: 70%;
   }
 
-  .credit { font-size: 0.75rem; }
-
-  .commission-card::before {
-    font-size: 20px !important;
+  /* プロフィール */
+  .profile {
+    padding: 20px 10px 60px 10px;
   }
 }
