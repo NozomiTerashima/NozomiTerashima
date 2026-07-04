@@ -458,3 +458,22 @@ nav a:active {
     padding: 20px 10px 60px 10px;
   }
 }
+
+/* =====================
+   PC・狭いウィンドウ時のホバー対応
+   （マウス操作のみ。スマホには影響しない）
+   ===================== */
+@media (max-width: 768px) and (hover: hover) and (pointer: fine) {
+  .home-item:hover::after {
+    opacity: 1;
+  }
+
+  .home-item:hover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 2px solid #ff9a9a;
+    z-index: 1;
+    pointer-events: none;
+  }
+}
