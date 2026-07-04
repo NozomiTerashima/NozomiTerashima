@@ -242,6 +242,28 @@ nav a:active {
   margin: 0 0 1.5em;
 }
 
+.zakki-text a {
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+}
+
+.zakki-text a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 1px;
+  width: 100%;
+  height: 1px;
+  background-color: #000;
+  opacity: 0;
+}
+
+.zakki-text a:hover::after {
+  opacity: 1;
+}
+
 .zakki-photo {
   margin-bottom: 16px;
   text-align: center;
