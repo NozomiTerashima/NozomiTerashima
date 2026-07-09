@@ -6,6 +6,25 @@
   <title>text | Nozomi Terashima</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="images/SMSC.webp" type="image/png">
+  <style>
+    .zakki-photo img { cursor: zoom-in; }
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(255,255,255,0.92);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+    #lightbox.active { display: flex; }
+    #lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+    }
+  </style>
 </head>
 <body>
 <header>
@@ -71,5 +90,26 @@
   <!-- 新しいエントリーはここより上に追加 -->
 
 </main>
+
+<div id="lightbox">
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+
+  document.querySelectorAll('.zakki-photo img').forEach(img => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightbox.classList.add('active');
+    });
+  });
+
+  lightbox.addEventListener('click', () => {
+    lightbox.classList.remove('active');
+    lightboxImg.src = '';
+  });
+</script>
 </body>
 </html>
