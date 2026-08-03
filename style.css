@@ -490,3 +490,8 @@ nav a:active {
     padding: 20px 10px 60px 10px;
   }
 }
+@media (min-width: 1600px) {
+  nav {
+    right: calc(50vw + 40px);
+  }
+}
