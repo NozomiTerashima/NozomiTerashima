@@ -1,12 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen Maru Gothic:wght@300;400;500;700;900&display=swap');
+
 html {
   scrollbar-gutter: stable;
 }
-@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700;900&display=swap');
-
 *, *::before, *::after { box-sizing: border-box; }
 
 body {
-  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-family: 'Zen Maru Gothic', sans-serif;
   line-height: 1.6;
   margin: 0;
   background-color: #fff;
@@ -54,7 +54,7 @@ header h1 a {
 header h1 a:hover,
 header h1 a:focus,
 header h1 a:active {
-  color: #ff9a9a;
+  color: #ff8c8c;
 }
 
 nav {
@@ -79,7 +79,7 @@ nav a {
 nav a:hover,
 nav a:focus,
 nav a:active {
-  color: #ff9a9a;
+  color: #ff8c8c;
 }
 
 .header-thumb {
@@ -185,7 +185,7 @@ nav a:active {
 }
 
 .home-item.active img {
-  box-shadow: 0 0 0 2px #ff9a9a;
+  box-shadow: 0 0 0 2px #ff8c8c;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -193,7 +193,7 @@ nav a:active {
     content: '';
     position: absolute;
     inset: 0;
-    border: 2px solid #ff9a9a;
+    border: 2px solid #ff8c8c;
     z-index: 1;
     pointer-events: none;
   }
@@ -212,7 +212,7 @@ nav a:active {
 .hover-title {
   font-size: clamp(18px, 2.5vw, 32px);
   font-weight: 400;
-  color: #ff9a9a;
+  color: #ff8c8c;
   letter-spacing: 0.05em;
   text-align: center;
   padding: 20px;
@@ -436,7 +436,7 @@ nav a:active {
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 20px;
-    color: #ff9a9a;
+    color: #ff8c8c;
     text-align: center;
     pointer-events: none;
     white-space: pre-wrap;
@@ -452,7 +452,7 @@ nav a:active {
     content: '';
     position: absolute;
     inset: 0;
-    border: 1px solid #ff9a9a;
+    border: 1px solid #ff8c8c;
     z-index: 1;
     pointer-events: none;
   }
